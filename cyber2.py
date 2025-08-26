@@ -37,10 +37,10 @@ load_balancers = [
 ]
 
 # Email configuration
-admin_email = "sreeraag004@gmail.com"  # Replace with your actual admin email
+admin_email = "admin@gmail.com"  # Replace with your actual admin email
 smtp_server_address = 'smtp.gmail.com'
 smtp_server_port = 587
-smtp_username = "roarrocky0@gmail.com"  # Replace with your actual email
+smtp_username = "client@gmail.com"  # Replace with your actual email
 smtp_password = "ddksgzagcznrgsav"  # Replace with your app password
 
 def send_email(subject, body):
