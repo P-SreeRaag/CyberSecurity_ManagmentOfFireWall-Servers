@@ -1,0 +1,30 @@
+New Registration Details
+--------------------------
+UserName:Hacker
+password:password
+
+App Password
+---------------------------
+MyProject
+ddksgzagcznrgsav
+-----------------------------
+How It Works
+Isolation Forest Training:
+
+The train_isolation_forest function creates a dataset of normal and anomalous login behaviors.
+It trains an Isolation Forest model to distinguish between normal and anomalous patterns.
+The trained model is saved to a file (anomaly_model.pkl) for future use.
+Anomaly Detection:
+
+The detect_anomaly function takes the number of logins and failed attempts as input.
+It uses the trained Isolation Forest model to predict if the input data is an anomaly.
+If the prediction indicates an anomaly (i.e., -1), it flags the login attempt.
+Integrate into Flask:
+
+During the login process (main_login route), the app checks if the login statistics (number of logins and failed attempts) indicate suspicious activity.
+If an anomaly is detected, it alerts the user and prevents login.
+Note
+This example uses dummy data for training. In a real scenario, you would use actual login statistics.
+Ensure you have the right data and model configuration for your specific use case.
+This approach adds a layer of security but should be used in conjunction with strong authentication practices and other security measures.
+Feel free to adapt the algorithm and data according to your specific needs and conte

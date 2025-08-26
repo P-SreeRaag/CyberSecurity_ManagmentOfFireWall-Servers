@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            width: 250px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 1rem 0;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{ user.username }} (Admin)</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/server_details">Server Details</a></li>
+                <li><a href="/firewall_details">Firewall Details</a></li>
+                <li><a href="/server_provisioning">Server Provisioning</a></li>
+                <li><a href="/server_provisioning_requests">Provisioning Requests</a></li>
+                <li><a href="/hardware_inventory">Hardware Inventory</a></li>
+                <li><a href="/reporting_page">Reporting</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="card">
+                <h2>Admin Dashboard</h2>
+                <p>This is the admin dashboard. You can manage servers, firewalls, provisioning requests, hardware inventory, and reporting here.</p>
+            </div>
+            <div class="card">
+                <h2>Server Status</h2>
+                <p>View and manage server status here.</p>
+            </div>
+            <div class="card">
+                <h2>Recent Activity</h2>
+                <p>Check recent activities and logs here.</p>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+</body>
+</html>

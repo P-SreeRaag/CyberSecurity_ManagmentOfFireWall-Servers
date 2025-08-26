@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Firewall Rule</title>
+</head>
+<body>
+    <h1>Add Firewall Rule</h1>
+    <form method="POST" action="{{ url_for('add_firewall_rule') }}">
+        <label for="source_ip">Source IP:</label>
+        <input type="text" id="source_ip" name="source_ip" required><br>
+        <label for="action">Action:</label>
+        <select id="action" name="action">
+            <option value="Allow">Allow</option>
+            <option value="Deny">Deny</option>
+        </select><br>
+        <button type="submit">Add Rule</button>
+    </form>
+</body>
+</html>

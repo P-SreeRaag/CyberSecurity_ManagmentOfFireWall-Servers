@@ -1,0 +1,35 @@
+<!-- details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        .server-down {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ type }} Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Server Name</th>
+                <th>Status</th>
+                <th>IP Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for server in details %}
+            <tr>
+                <td>{{ server.server_name }}</td>
+                <td class="{% if server.status == 'Offline' %}server-down{% endif %}">{{ server.status }}</td>
+                <td>{{ server.ip }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

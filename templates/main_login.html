@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Cybersecurity Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cyb.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Login to Cybersecurity Portal</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="#">Servers</a></li>
+                <li><a href="#">Firewalls</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="section-container">
+            <section class="management-section">
+                <h2>Login</h2>
+                <form method="POST">
+                    <div>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class="flashes">
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Cybersecurity Portal</p>
+    </footer>
+</body>
+</html>

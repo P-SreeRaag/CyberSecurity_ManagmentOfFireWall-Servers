@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Management Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Server Management Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <!-- Section for Servers -->
+        <div class="section">
+            <h3>Servers</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Server Name</th>
+                        <th>IP Address</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for server in servers %}
+                    <tr>
+                        <td>{{ server['server_name'] }}</td>
+                        <td>{{ server['ip'] }}</td>
+                        <td class="{{ 'status-online' if server['status'] == 'Online' else 'status-offline' }}">
+                            {{ server['status'] }}
+                        </td>
+                        <td>
+                            <a class="button-link" href="{{ url_for('toggle_server_status', server_name=server['server_name']) }}">
+                                Toggle Status
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section for Firewall Rules -->
+        <div class="section">
+            <h3>Firewall Rules</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source IP</th>
+                        <th>Action</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rule in firewall_rules %}
+                    <tr>
+                        <td>{{ rule['source_ip'] }}</td>
+                        <td class="{{ 'status-online' if rule['action'] == 'Allow' else 'status-offline' }}">
+                            {{ rule['action'] }}
+                        </td>
+                        <td>
+                            <a class="button-link" href="{{ url_for('toggle_firewall_action', source_ip=rule['source_ip']) }}">
+                                Toggle Action
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <a href="{{ url_for('add_server') }}" class="button-link">Add Server</a> |
+            <a href="{{ url_for('add_firewall_rule') }}" class="button-link">Add Firewall Rule</a>
+        </div>
+
+        <div class="section">
+            <a href="{{ url_for('load_balancer_management') }}" class="button-link">
+                <button>Load Balancer Management</button>
+            </a>
+            <a href="{{ url_for('monitoring_dashboard') }}" class="button-link">
+                <button>Monitoring Dashboard</button>
+            </a>
+        </div>
+
+        <div class="section">
+            <a href="{{ url_for('logout') }}" class="button-link">Logout</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Server Management Dashboard</p>
+    </footer>
+</body>
+</html>
