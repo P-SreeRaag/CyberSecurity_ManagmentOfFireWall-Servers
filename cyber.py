@@ -28,12 +28,12 @@ users = [
 ]
 
 def notify_admin(server):
-    admin_email = "sreeraag004@gmail.com"  # Replace with the actual admin email
+    admin_email = "admin@gmail.com"  # Replace with the actual admin email
     subject = f"Server {server['server_name']} is Down"
     body = f"The server {server['server_name']} (IP: {server['ip']}) is currently down."
 
     msg = MIMEMultipart()
-    msg['From'] = "roarrocky0@gmail.com"  # Replace with your Gmail address
+    msg['From'] = "client@gmail.com"  # Replace with your Gmail address
     msg['To'] = admin_email
     msg['Subject'] = subject
 
@@ -42,8 +42,8 @@ def notify_admin(server):
     try:
         smtp_server = smtplib.SMTP('smtp.gmail.com', 587)
         smtp_server.starttls()
-        smtp_server.login("roarrocky0@gmail.com", "ddksgzagcznrgsav")  # Replace with your Gmail address and app password
-        smtp_server.sendmail("roarrocky0@gmail.com", admin_email, msg.as_string())
+        smtp_server.login("client@gmail.com", "ddksgzagcznrgsav")  # Replace with your Gmail address and app password
+        smtp_server.sendmail("client@gmail.com", admin_email, msg.as_string())
         smtp_server.quit()
         print("Email sent successfully.")
     except socket.gaierror as e:
